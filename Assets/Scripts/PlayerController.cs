@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        transform.Translate(Vector3.forward*speed);
+        transform.Translate(Vector3.forward*speed*Time.deltaTime);
 
 
       /*  if (Input.GetKey(KeyCode.A))
