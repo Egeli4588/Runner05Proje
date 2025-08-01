@@ -2,15 +2,34 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] Rigidbody rb;
+    [SerializeField] public Animator myAnim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.position= new Vector3 (0, 0, 5);
+        // transform.position= new Vector3 (0, 0, 5);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.A))
+        {
+            myAnim.SetBool("Run", true);
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            myAnim.SetBool("Run", false);
+        }
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            myAnim.SetBool("Jump", true);        
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            myAnim.SetBool("Jump", false);
+        }
+
     }
 }
