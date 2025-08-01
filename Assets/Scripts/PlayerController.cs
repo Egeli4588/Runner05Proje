@@ -5,11 +5,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] public Animator myAnim;
     [SerializeField] public float speed;
-    [SerializeField] public float shift=2;
+    [SerializeField] public float shift = 2;
+    [SerializeField] public bool isLeft, isMiddle, isRight;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        isMiddle = true;
         // transform.position= new Vector3 (0, 0, 5);
     }
 
@@ -18,18 +20,57 @@ public class PlayerController : MonoBehaviour
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.A) && transform.position.x>-0.5f )
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isLeft == false)
+
         {
+            if (isMiddle)
+            {
+                isLeft = true;
+                isMiddle = false;
+            }
+            else if (isRight)
+            {
+                isMiddle = true;
+                isRight = false;
+            }
             transform.Translate(new Vector3(-shift, 0, 0));
         }
-        else if (Input.GetKeyDown(KeyCode.D) && transform.position.x<0.5f) 
+
+        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && isRight == false)
+
         {
-            transform.Translate(shift, 0, 0);
-        
+            if (isMiddle)
+            {
+                isRight = true;
+                isMiddle = false;
+            
+            }
+            else if (isLeft) 
+            {
+               isMiddle= true;
+                isLeft= false;
+            }
+            transform.Translate(new Vector3(shift, 0, 0));
         }
 
 
-       // rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
+
+
+
+        // 1.yöntem
+        /* if (Input.GetKeyDown(KeyCode.A) && transform.position.x>-0.5f )
+         {
+             transform.Translate(new Vector3(-shift, 0, 0));
+         }
+         else if (Input.GetKeyDown(KeyCode.D) && transform.position.x<0.5f) 
+         {
+             transform.Translate(shift, 0, 0);
+
+         }
+        */
+
+
+        // rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
 
 
 
@@ -65,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-       // rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
+        // rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
 
     }
 
