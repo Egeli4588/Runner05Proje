@@ -15,28 +15,39 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       // rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
 
-        transform.Translate(Vector3.forward*speed*Time.deltaTime);
 
 
-      /*  if (Input.GetKey(KeyCode.A))
-        {
-            myAnim.SetBool("Run", true);
-        }
-        else if (Input.GetKeyUp(KeyCode.A))
-        {
-            myAnim.SetBool("Run", false);
-        }
-        if (Input.GetKeyDown(KeyCode.Space)) 
-        {
-            myAnim.SetBool("Jump", true);        
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            myAnim.SetBool("Jump", false);
-        }
+        // transform translate ile ýþýnlama 
+        //  transform.Translate(Vector3.forward*speed*Time.deltaTime);
 
-        */
+
+        /*  if (Input.GetKey(KeyCode.A))
+          {
+              myAnim.SetBool("Run", true);
+          }
+          else if (Input.GetKeyUp(KeyCode.A))
+          {
+              myAnim.SetBool("Run", false);
+          }
+          if (Input.GetKeyDown(KeyCode.Space)) 
+          {
+              myAnim.SetBool("Jump", true);        
+          }
+          else if (Input.GetKeyUp(KeyCode.Space))
+          {
+              myAnim.SetBool("Jump", false);
+          }
+
+          */
 
     }
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
+
+    }
+
 }
