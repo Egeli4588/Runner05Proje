@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && transform.position.x>-0.5f )
         {
             transform.Translate(new Vector3(-shift, 0, 0));
         }
-        else if (Input.GetKeyDown(KeyCode.D)) 
+        else if (Input.GetKeyDown(KeyCode.D) && transform.position.x<0.5f) 
         {
             transform.Translate(shift, 0, 0);
         
