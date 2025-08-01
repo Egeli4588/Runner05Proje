@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] public Animator myAnim;
     [SerializeField] public float speed;
+    [SerializeField] public float shift=2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,6 +16,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            transform.Translate(new Vector3(-shift, 0, 0));
+        }
+        else if (Input.GetKeyDown(KeyCode.D)) 
+        {
+            transform.Translate(shift, 0, 0);
+        
+        }
+
+
        // rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
 
 
@@ -42,11 +56,16 @@ public class PlayerController : MonoBehaviour
 
           */
 
+
+
+
+
+
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
+       // rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
 
     }
 
