@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
     [SerializeField] public Animator myAnim;
+    [SerializeField] public float speed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,7 +15,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+
+        transform.Translate(Vector3.forward*speed);
+
+
+      /*  if (Input.GetKey(KeyCode.A))
         {
             myAnim.SetBool("Run", true);
         }
@@ -30,6 +35,8 @@ public class PlayerController : MonoBehaviour
         {
             myAnim.SetBool("Jump", false);
         }
+
+        */
 
     }
 }
