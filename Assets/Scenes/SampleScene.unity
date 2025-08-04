@@ -443,13 +443,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.12446105, y: -0.019746926, z: 0.002477439, w: -0.9920249}
-  m_LocalPosition: {x: -0.23833612, y: 2.3855333, z: -5.9754124}
+  m_LocalRotation: {x: -0.21693863, y: -0.019892244, z: 0.0006147808, w: -0.9759823}
+  m_LocalPosition: {x: -0.23833612, y: 3.54, z: -5.9754124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 3833715674966892516}
+  m_LocalEulerAnglesHint: {x: 25.055, y: 2.44, z: 0.47}
 --- !u!1 &1492066260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,6 +1648,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 963194228}
   - {fileID: 3140660259119118386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3139,7 +3140,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -3159,6 +3160,10 @@ MonoBehaviour:
   rb: {fileID: 8702267592701562686}
   myAnim: {fileID: 3140660259119118387}
   speed: 5
+  shift: 2
+  isLeft: 0
+  isMiddle: 1
+  isRight: 0
 --- !u!1 &8710243893113852219
 GameObject:
   m_ObjectHideFlags: 0
@@ -3448,7 +3453,6 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 3833715674966892516}
   - {fileID: 655510160}
