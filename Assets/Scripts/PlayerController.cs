@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float speed;
     [SerializeField] public float shift = 2;
     [SerializeField] public bool isLeft, isMiddle, isRight;
-
+    [HideInInspector] public string denemeforgizleme;//gizleme1
+    [System.NonSerialized] public string denemeforgizleme2;// gizleme 2
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,56 +19,63 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region karakter sýnýrlama
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isLeft == false)
-
+        // 1.yöntem
+        if (Input.GetKeyDown(KeyCode.A) && transform.position.x > -0.5f)
         {
-            if (isMiddle)
-            {
-                isLeft = true;
-                isMiddle = false;
-            }
-            else if (isRight)
-            {
-                isMiddle = true;
-                isRight = false;
-            }
             transform.Translate(new Vector3(-shift, 0, 0));
         }
-
-        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && isRight == false)
-
+        else if (Input.GetKeyDown(KeyCode.D) && transform.position.x < 0.5f)
         {
-            if (isMiddle)
-            {
-                isRight = true;
-                isMiddle = false;
-            
-            }
-            else if (isLeft) 
-            {
-               isMiddle= true;
-                isLeft= false;
-            }
-            transform.Translate(new Vector3(shift, 0, 0));
+            transform.Translate(shift, 0, 0);
+
         }
 
 
 
 
 
-        // 1.yöntem
-        /* if (Input.GetKeyDown(KeyCode.A) && transform.position.x>-0.5f )
-         {
-             transform.Translate(new Vector3(-shift, 0, 0));
-         }
-         else if (Input.GetKeyDown(KeyCode.D) && transform.position.x<0.5f) 
-         {
-             transform.Translate(shift, 0, 0);
 
-         }
-        */
+        //2.yöntem
+        /*  if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isLeft == false)
+
+          {
+              if (isMiddle)
+              {
+                  isLeft = true;
+                  isMiddle = false;
+              }
+              else if (isRight)
+              {
+                  isMiddle = true;
+                  isRight = false;
+              }
+              transform.Translate(new Vector3(-shift, 0, 0));
+          }
+
+          else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && isRight == false)
+
+          {
+              if (isMiddle)
+              {
+                  isRight = true;
+                  isMiddle = false;
+
+              }
+              else if (isLeft) 
+              {
+                 isMiddle= true;
+                  isLeft= false;
+              }
+              transform.Translate(new Vector3(shift, 0, 0));
+          }
+
+          */
+        #endregion
+
+
 
 
         // rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
