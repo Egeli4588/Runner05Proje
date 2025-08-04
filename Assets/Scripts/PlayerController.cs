@@ -197,6 +197,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Coin")) 
         {
             Destroy(other.gameObject);
+            // Destroy(other.gameObject,2f) bu da 2 saniye sonra kaybolsun demektir.
             score += 10;
             Debug.Log("Puan : " + score);
         }
