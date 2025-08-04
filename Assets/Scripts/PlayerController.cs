@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        MoveCharacter();
+        moveCharacter();
+
 
         karakterHareket();
 
@@ -64,12 +65,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
-     void karakterHareket()
+    /// <summary>
+    /// burda otomatik ürettirdiðimiz metod
+    /// </summary>
+    void karakterHareket()
     {
-       // programa ürettirdiðimiz metod
+        // programa ürettirdiðimiz metod
     }
 
-    void MoveCharacter() 
+    /// <summary>
+    /// bu fonksiyon karakter hareketini saðlýyor
+    /// </summary>
+    void moveCharacter()
     {
         #region karakter sýnýrlama
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -129,6 +136,27 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    /// <summary>
+    /// oncollision Enter metodu herhangi bir objeyle çarpýþmayý kontrol eder
+    /// çarpýþmanýn baþladýðý aný ifade eder
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionEnter(Collision other)
+    {
+        //Debug.Log("çarpýþtýk");
+
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Obstacle çarpýþtýk " + other.gameObject.name);
+        }
+
+        if (other.gameObject.CompareTag("duvar")) 
+        {
+            Debug.Log("Duvar çarpýþtýk " + other.gameObject.name);
+        }
+    }
+
 
 
     private void FixedUpdate()
