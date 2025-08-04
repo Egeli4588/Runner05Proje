@@ -172,7 +172,19 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
+        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        
+    }
     private void FixedUpdate()
     {
         // rb.MovePosition(transform.position + Vector3.forward * speed * Time.deltaTime);
