@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool isLeft, isMiddle, isRight;
     [HideInInspector] public string denemeforgizleme;//gizleme1
     [System.NonSerialized] public string denemeforgizleme2;// gizleme 2
-
+    int score;
     //bool ile sürünmeden kurtulalaým
 
     public bool isDead;
@@ -170,17 +170,50 @@ public class PlayerController : MonoBehaviour
         }
        */
     }
-
-
-    private void OnTriggerEnter(Collider other)
+    /// <summary>
+    /// ncollision Exit metodu herhangi bir objeyle çarpýþmayý kontrol eder
+    /// çarpýþmadan çýklýdýðýný  aný ifade eder
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionExit(Collision collision)
     {
         
     }
-
+    /// <summary>
+    /// ncollision stay metodu herhangi bir objeyle çarpýþmayý kontrol eder
+    /// çarpýþmanýn devam ettiði aný ifade eder
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionStay(Collision collision)
+    {
+        
+    }
+    /// <summary>
+    /// isTrigger ile kontrol edilen yapýnýn içine girdiðinde neler yapýlacaðý
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin")) 
+        {
+            Destroy(other.gameObject);
+            score += 10;
+            Debug.Log("Puan : " + score);
+        }
+        
+    }
+    /// <summary>
+    /// isTrigger ile kontrol edilen yapýnýn içinde kalmaya devam ettiðinde neler yapýlacaðý
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerStay(Collider other)
     {
         
     }
+    /// <summary>
+    /// isTrigger ile kontrol edilen yapýnýn içinden çýkýldýðýnda girdiðinde neler yapýlacaðý
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerExit(Collider other)
     {
         
