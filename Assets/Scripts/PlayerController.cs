@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         isMiddle = true;
         // transform.position= new Vector3 (0, 0, 5);
+        myAnim.SetBool("Run", true);
     }
 
     // Update is called once per frame
@@ -149,12 +150,17 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Obstacle çarpýþtýk " + other.gameObject.name);
+           
+            
+            myAnim.SetBool("Death", true);
+
         }
 
-        if (other.gameObject.CompareTag("duvar")) 
+       /* if (other.gameObject.CompareTag("duvar")) 
         {
             Debug.Log("Duvar çarpýþtýk " + other.gameObject.name);
         }
+       */
     }
 
 
