@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool isLeft, isMiddle, isRight;
     [HideInInspector] public string denemeforgizleme;//gizleme1
     [System.NonSerialized] public string denemeforgizleme2;// gizleme 2
+
+    //bool ile sürünmeden kurtulalaým
+
+    public bool isDead;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -79,6 +84,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void moveCharacter()
     {
+        if (isDead) return;
+
+
         #region karakter sýnýrlama
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
@@ -150,9 +158,9 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Obstacle çarpýþtýk " + other.gameObject.name);
-           
-            
+                      
             myAnim.SetBool("Death", true);
+            isDead = true;
 
         }
 
