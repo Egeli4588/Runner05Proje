@@ -10,8 +10,12 @@ public class CamFallow : MonoBehaviour
         zoffset=transform.position.z-Player.position.z;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, Player.position.z+zoffset);
+        transform.position = new Vector3(transform.position.x, transform.position.y, Player.position.z + zoffset);
     }
+   
+    //update
+    //fixed update hareket kodlarý burda olmasý gerekir
+    //eðer kamera takibi varsa buda lateUpdate 
 }
