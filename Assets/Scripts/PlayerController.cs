@@ -95,12 +95,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A) && transform.position.x > -0.5f)
         {
             //  transform.Translate(new Vector3(-shift, 0, 0));
-            transform.DOMoveX(transform.position.x - shift, 0.5f).SetEase(Ease.InBounce);
+            transform.DOMoveX(transform.position.x - shift, 0.5f).SetEase(Ease.Linear);
         }
         else if (Input.GetKeyDown(KeyCode.D) && transform.position.x < 0.5f)
         {
             //transform.Translate(shift, 0, 0);
-            transform.DOMoveX(transform.position.x + shift, 0.5f).SetEase(Ease.InBounce);
+            transform.DOMoveX(transform.position.x + shift, 0.5f).SetEase(Ease.Linear);
 
         }
 
