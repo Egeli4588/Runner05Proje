@@ -20,13 +20,14 @@ public class PlayerController : MonoBehaviour
     //bool ile sürünmeden kurtulalaým
 
     public bool isDead;
-    
+    //oyun baþladýðýnda karakter hareket etmemesi için
+    [HideInInspector] public bool isStart;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         isMiddle = true;
         // transform.position= new Vector3 (0, 0, 5);
-        myAnim.SetBool("Run", true);
+        //myAnim.SetBool("Run", true);
     }
 
     // Update is called once per frame
@@ -85,6 +86,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void moveCharacter()
     {
+        if (!isStart) return;//baþlamamýþsa karakter hareket etmesin
+
         if (isDead) return;
 
 
