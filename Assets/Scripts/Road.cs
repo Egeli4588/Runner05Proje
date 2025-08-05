@@ -13,7 +13,7 @@ public class Road : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {     //oyuncunun pozisyonu ile yolun pozisyonu arasýndaki fark 25 ten büyük olduðunda arkadaki yollarý destroy et
         if ((Player.transform.position.z - this.transform.position.z) > 25)
         {
             Destroy(this.gameObject);

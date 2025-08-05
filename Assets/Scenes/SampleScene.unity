@@ -2825,8 +2825,8 @@ GameObject:
   - component: {fileID: 8702267592701562686}
   - component: {fileID: 8702267592701562685}
   m_Layer: 0
-  m_Name: CowboyRIO_Normal
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
