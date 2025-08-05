@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] PlayerController playerController;
+    [SerializeField] public GameObject gameStartMenu;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,5 +17,11 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void StartGame() 
+    {
+     playerController.isStart = true;// oyun baþladý
+        playerController.myAnim.SetBool("Run", true);
+        gameStartMenu.SetActive(false);
     }
 }

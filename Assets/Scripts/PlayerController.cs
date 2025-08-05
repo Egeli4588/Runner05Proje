@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isDead;
     //oyun baþladýðýnda karakter hareket etmemesi için
-    [HideInInspector] public bool isStart;
+    [HideInInspector] public bool isStart;// public olmasýnýn neden buna UI Managerdan eriþmek
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

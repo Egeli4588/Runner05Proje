@@ -456,6 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b8d85af42746d4bac4ff294920da51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 8702267592701562687}
+  gameStartMenu: {fileID: 995388424}
 --- !u!4 &768949989
 Transform:
   m_ObjectHideFlags: 0
@@ -3536,6 +3538,7 @@ MonoBehaviour:
   isRight: 0
   denemeforgizleme: 
   isDead: 0
+  isStart: 0
 --- !u!1 &8710243893113852219
 GameObject:
   m_ObjectHideFlags: 0
