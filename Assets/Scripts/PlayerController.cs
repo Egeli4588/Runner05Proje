@@ -16,13 +16,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool isLeft, isMiddle, isRight;
     [HideInInspector] public string denemeforgizleme;//gizleme1
     [System.NonSerialized] public string denemeforgizleme2;// gizleme 2
-    int score;
+    public int score;
     //bool ile sürünmeden kurtulalaým
 
     public bool isDead;
     //oyun baþladýðýnda karakter hareket etmemesi için
     [HideInInspector] public bool isStart;// public olmasýnýn neden buna UI Managerdan eriþmek
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    [SerializeField] public float floatScore;// oyunda geçen süreyi tutacaðýz.
+
     void Start()
     {
         isMiddle = true;
@@ -89,6 +91,16 @@ public class PlayerController : MonoBehaviour
         if (!isStart) return;//baþlamamýþsa karakter hareket etmesin
 
         if (isDead) return;
+
+        floatScore += Time.deltaTime;
+
+        if (floatScore>1)
+        {
+            score += 1;
+            floatScore = 0;
+        }
+
+
 
 
         #region karakter sýnýrlama

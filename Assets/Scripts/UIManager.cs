@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
     [SerializeField] public GameObject gameStartMenu;// start menü paneli için
     [SerializeField] public GameObject gameRestartMenu;// Restart menü Paneli için
+    [SerializeField] public TextMeshProUGUI score;// restart de görünen
+    [SerializeField] public TextMeshProUGUI mainScore;// her iki ekrandada görünen
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,9 +21,12 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mainScore.text = "Score : " + playerController.score;
+
         if (playerController.isDead)
         {
             gameRestartMenu.SetActive(true);
+            score.text = "Score : " + playerController.score;
 
         }
 

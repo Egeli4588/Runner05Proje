@@ -591,6 +591,7 @@ MonoBehaviour:
   playerController: {fileID: 8702267592701562687}
   gameStartMenu: {fileID: 995388424}
   gameRestartMenu: {fileID: 1719828513}
+  score: {fileID: 1977331530}
 --- !u!4 &768949989
 Transform:
   m_ObjectHideFlags: 0
@@ -4109,6 +4110,7 @@ MonoBehaviour:
   isMiddle: 1
   isRight: 0
   denemeforgizleme: 
+  score: 0
   isDead: 0
   isStart: 0
 --- !u!1 &8710243893113852219
