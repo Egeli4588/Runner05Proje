@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isStart;// public olmasının neden buna UI Managerdan erişmek
 
     [SerializeField] public float floatScore;// oyunda geçen süreyi tutacağız.
+    [SerializeField] public float passedTime;
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        passedTime += Time.deltaTime;
         moveCharacter();
 
 
@@ -100,6 +101,12 @@ public class PlayerController : MonoBehaviour
             floatScore = 0;
         }
 
+        if (passedTime>10) 
+        {
+            speed += 5f;
+            passedTime = 0;
+        
+        }
 
 
 
