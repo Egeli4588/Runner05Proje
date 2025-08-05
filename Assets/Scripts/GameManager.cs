@@ -13,15 +13,30 @@ public class GameManager : MonoBehaviour
     
     float roadLength = 20;
 
-    int startRoadCount = 15;
+    int startRoadCount = 6;
 
     private void Start()
     {   //bu komut temelde klon oluþturmaya yarýyor.
         Instantiate(road[0], transform.position, Quaternion.identity, roadParent);
         for (int i = 0; i < startRoadCount; i++)
         {
-            Instantiate(road[Random.Range(0,road.Length)], transform.position+new Vector3(0,0,roadLength), Quaternion.identity, roadParent);
-            roadLength += 20;
+            GenerateRoad();
+            
         }
     }
+
+    private void Update()
+    {
+        if (Player.position.z > roadLength / 2) 
+        {
+            GenerateRoad();
+        }
+    }
+    void GenerateRoad() 
+    {
+        Instantiate(road[Random.Range(0, road.Length)], transform.position + new Vector3(0, 0, roadLength), Quaternion.identity, roadParent);
+        roadLength += 20;
+
+    }
 }
+ 
