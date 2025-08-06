@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                CheckHealth(damage,other.gameObject);
+                CheckHealth(damage, other.gameObject);
             }
         }
 
@@ -258,6 +258,7 @@ public class PlayerController : MonoBehaviour
                     ActiveShield();
                     break;
                 case CollectablesEnum.Score2X:
+                    ActivateBonus();
                     break;
                 case CollectablesEnum.Health:
                     AddHealth(collectables.ToBeAddedHealth);// daha dinamik bir can eklemeyi saðladýk
@@ -277,7 +278,17 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   
+    void ActivateBonus()
+    {
+        is2XActive = true;
+        Invoke("DeActivateBonus", 5f);
+    }
+
+    void DeActivateBonus()
+    {
+        is2XActive = false;
+
+    }
 
     void AddScore(int ToBeAddedScore)
     {
@@ -305,7 +316,7 @@ public class PlayerController : MonoBehaviour
     void AddHealth(int TobeAddedHealth)
     {
         Health += TobeAddedHealth;
-        if (Health <= 0) 
+        if (Health <= 0)
         {
             myAnim.SetBool("Death", true);
             isDead = true;
