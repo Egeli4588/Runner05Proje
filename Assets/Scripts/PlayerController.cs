@@ -260,7 +260,7 @@ public class PlayerController : MonoBehaviour
                 case CollectablesEnum.Score2X:
                     break;
                 case CollectablesEnum.Health:
-                    AddHealth(1);
+                    AddHealth(collectables.ToBeAddedHealth);
                     break;
                 case CollectablesEnum.SpeedUp:
                     break;
