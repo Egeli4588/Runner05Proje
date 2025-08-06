@@ -219,12 +219,34 @@ public class PlayerController : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Coin")) 
+        if (other.CompareTag("Collectable")) 
         {
+            Collectables collectables=other.GetComponent<Collectables>(); // collactables kod dosyasýna eriþim saðladým
+
+            switch (collectables.CollectablesEnum)
+            {
+                case CollectablesEnum.Coin:
+                    break;
+                case CollectablesEnum.Shield:
+                    break;
+                case CollectablesEnum.Score2X:
+                    break;
+                case CollectablesEnum.Health:
+                    break;
+                case CollectablesEnum.SpeedUp:
+                    break;
+                case CollectablesEnum.none:
+                    break;
+                default:
+                    break;
+            }
+
+
+
+
             Destroy(other.gameObject);
-            // Destroy(other.gameObject,2f) bu da 2 saniye sonra kaybolsun demektir.
-            score += 10;
-            Debug.Log("Puan : " + score);
+          
+          
         }
         
     }
