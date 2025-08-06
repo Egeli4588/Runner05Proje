@@ -4253,6 +4253,10 @@ MonoBehaviour:
   isStart: 0
   floatScore: 0
   passedTime: 0
+  is2XActive: 0
+  isShieldActive: 0
+  isSpeedUpActive: 0
+  Health: 3
 --- !u!1 &8710243893113852219
 GameObject:
   m_ObjectHideFlags: 0

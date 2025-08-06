@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     public bool is2XActive, isShieldActive, isSpeedUpActive;
 
+    [SerializeField] public int Health;
+
     void Start()
     {
         isMiddle = true;
@@ -185,7 +187,13 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Obstacle çarpýþtýk " + other.gameObject.name);
+            if (isShieldActive)
+            {
+                Destroy(other.gameObject);
+                isShieldActive = false;
+            }
+
+
 
             myAnim.SetBool("Death", true);
             isDead = true;
@@ -265,13 +273,13 @@ public class PlayerController : MonoBehaviour
     void ActiveShield()
     {
         isShieldActive = true;
-        Invoke("DeactiveShield",5f);
+        Invoke("DeactiveShield", 5f);
     }
 
     /// <summary>
     /// bu fonksiyon kalkaný pasif yapar
     /// </summary>
-    void DeactiveShield() 
+    void DeactiveShield()
     {
         isShieldActive = false;
     }
