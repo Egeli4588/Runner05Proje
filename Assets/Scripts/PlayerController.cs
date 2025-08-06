@@ -186,17 +186,20 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("çarpýþtýk");
 
         if (other.gameObject.CompareTag("Obstacle"))
-        {
+        {   // burda damage deðiþkenine obstacle sýnýfýndaki damage deðiþkenini çektim atýyorum.
+
+            int damage = other.gameObject.GetComponent<Obstacle>().damage;
             if (isShieldActive)
             {
                 Destroy(other.gameObject);
                 isShieldActive = false;
             }
+            else
+            {
+                CheckHealth(damage,other.gameObject);
+            }
 
 
-
-            myAnim.SetBool("Death", true);
-            isDead = true;
 
         }
 
@@ -206,6 +209,23 @@ public class PlayerController : MonoBehaviour
          }
         */
     }
+
+    private void CheckHealth(int damage, GameObject other)
+    {
+        Health -= damage;
+        if (Health <= 0)
+        {
+            myAnim.SetBool("Death", true);
+            isDead = true;
+        }
+        else
+        {
+            Destroy(other.gameObject);
+        }
+
+
+    }
+
     /// <summary>
     /// ncollision Exit metodu herhangi bir objeyle çarpýþmayý kontrol eder
     /// çarpýþmadan çýklýdýðýný  aný ifade eder
