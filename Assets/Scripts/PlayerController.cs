@@ -226,6 +226,7 @@ public class PlayerController : MonoBehaviour
             switch (collectables.CollectablesEnum)
             {
                 case CollectablesEnum.Coin:
+                    AddScore(10);
                     break;
                 case CollectablesEnum.Shield:
                     break;
@@ -241,15 +242,21 @@ public class PlayerController : MonoBehaviour
                     break;
             }
 
-
-
-
             Destroy(other.gameObject);
-          
+  
           
         }
         
     }
+
+     void AddScore(int ToBeAddedScore)
+    {
+        score += ToBeAddedScore;
+    }
+
+
+
+
     /// <summary>
     /// isTrigger ile kontrol edilen yapýnýn içinde kalmaya devam ettiðinde neler yapýlacaðý
     /// </summary>
