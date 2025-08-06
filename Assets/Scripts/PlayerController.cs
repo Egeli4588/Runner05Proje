@@ -252,7 +252,7 @@ public class PlayerController : MonoBehaviour
             switch (collectables.CollectablesEnum)
             {
                 case CollectablesEnum.Coin:
-                    AddScore(10);
+                    AddScore(collectables.ToBeAddedScore);
                     break;
                 case CollectablesEnum.Shield:
                     ActiveShield();

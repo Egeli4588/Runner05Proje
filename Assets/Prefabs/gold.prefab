@@ -145,3 +145,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollectablesEnum: 0
+  ToBeAddedHealth: 0
+  ToBeAddedScore: 10
