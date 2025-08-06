@@ -6,6 +6,7 @@ public class Collectables : MonoBehaviour
     public CollectablesEnum CollectablesEnum;  // enumýn içindeki objelere erþebilirim (Coin,Shield,...)
     public int ToBeAddedHealth;
     public int ToBeAddedScore;
+    public int ToBeAddedSpeed;
     
 
 

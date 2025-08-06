@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] public int Health;
 
+    public float beforeSpeed;
+
     void Start()
     {
         isMiddle = true;
@@ -264,8 +266,7 @@ public class PlayerController : MonoBehaviour
                     AddHealth(collectables.ToBeAddedHealth);// daha dinamik bir can eklemeyi saðladýk
                     break;
                 case CollectablesEnum.SpeedUp:
-                    break;
-                case CollectablesEnum.none:
+                    AddSpeed(collectables.ToBeAddedSpeed);
                     break;
                 default:
                     break;
@@ -277,6 +278,20 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    void AddSpeed(int toBeAddedSpeed)
+    {
+        beforeSpeed = speed;
+        speed += toBeAddedSpeed;
+        Invoke("BackToOrijinalSpeed", 5f);
+
+    }
+    void BackToOrijinalSpeed() 
+    {
+        speed = beforeSpeed;
+       
+    }
+
 
     void ActivateBonus()
     {
