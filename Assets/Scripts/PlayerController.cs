@@ -198,9 +198,6 @@ public class PlayerController : MonoBehaviour
             {
                 CheckHealth(damage,other.gameObject);
             }
-
-
-
         }
 
         /* if (other.gameObject.CompareTag("duvar")) 
@@ -222,8 +219,6 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-
-
     }
 
     /// <summary>
@@ -265,6 +260,7 @@ public class PlayerController : MonoBehaviour
                 case CollectablesEnum.Score2X:
                     break;
                 case CollectablesEnum.Health:
+                    AddHealth(1);
                     break;
                 case CollectablesEnum.SpeedUp:
                     break;
@@ -281,6 +277,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+   
 
     void AddScore(int ToBeAddedScore)
     {
@@ -303,6 +300,13 @@ public class PlayerController : MonoBehaviour
     {
         isShieldActive = false;
     }
+
+    // can ekleme fonksiyonu.
+    void AddHealth(int TobeAddedHealth)
+    {
+        Health += TobeAddedHealth;
+    }
+
 
 
 
