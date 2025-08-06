@@ -260,7 +260,7 @@ public class PlayerController : MonoBehaviour
                 case CollectablesEnum.Score2X:
                     break;
                 case CollectablesEnum.Health:
-                    AddHealth(collectables.ToBeAddedHealth);
+                    AddHealth(collectables.ToBeAddedHealth);// daha dinamik bir can eklemeyi saðladýk
                     break;
                 case CollectablesEnum.SpeedUp:
                     break;
@@ -305,6 +305,12 @@ public class PlayerController : MonoBehaviour
     void AddHealth(int TobeAddedHealth)
     {
         Health += TobeAddedHealth;
+        if (Health <= 0) 
+        {
+            myAnim.SetBool("Death", true);
+            isDead = true;
+        }
+
     }
 
 
