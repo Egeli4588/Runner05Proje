@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float passedTime;
 
 
-    public bool is2XActive, isShieldActive, isSpeedUpActive;
+    public bool is2XActive, isShieldActive, isMagnetActive;
 
     [SerializeField] public int Health;
 
@@ -268,6 +268,10 @@ public class PlayerController : MonoBehaviour
                 case CollectablesEnum.SpeedUp:
                     AddSpeed(collectables.ToBeAddedSpeed);
                     break;
+                case CollectablesEnum.Magnet:
+                    ActiveMagnet();
+                    break;
+
                 default:
                     break;
             }
@@ -279,6 +283,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void ActiveMagnet()
+    {
+        isMagnetActive = true;
+        Invoke("DeactivateMAgnet", 5f);
+    }
+    void DeactivateMAgnet()
+    {
+        isMagnetActive = false;
+    }
+
     void AddSpeed(int toBeAddedSpeed)
     {
         beforeSpeed = speed;
@@ -286,10 +300,10 @@ public class PlayerController : MonoBehaviour
         Invoke("BackToOrijinalSpeed", 5f);
 
     }
-    void BackToOrijinalSpeed() 
+    void BackToOrijinalSpeed()
     {
         speed = beforeSpeed;
-       
+
     }
 
 
