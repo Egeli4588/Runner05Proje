@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4638759469730354309}
   - component: {fileID: 5526766907821952127}
   - component: {fileID: 8310892005577922066}
+  - component: {fileID: 8023249355166561579}
   m_Layer: 0
   m_Name: gold
-  m_TagString: Coin
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,3 +132,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8023249355166561579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816362928736357272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8688be22bcef13a4eba459ab72023150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollectablesEnum: 0
