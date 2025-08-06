@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
         if (passedTime>10) 
         {
-            speed += 5f;
+            speed += 0.3f;
             passedTime = 0;
         
         }
