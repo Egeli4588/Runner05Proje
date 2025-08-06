@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float floatScore;// oyunda geçen süreyi tutacaðýz.
     [SerializeField] public float passedTime;
 
+
+    public bool is2XActive, isShieldActive, isSpeedUpActive;
+
     void Start()
     {
         isMiddle = true;
@@ -95,17 +98,17 @@ public class PlayerController : MonoBehaviour
 
         floatScore += Time.deltaTime;
 
-        if (floatScore>1)
+        if (floatScore > 1)
         {
             score += 1;
             floatScore = 0;
         }
 
-        if (passedTime>10) 
+        if (passedTime > 10)
         {
             speed += 0.3f;
             passedTime = 0;
-        
+
         }
 
 
@@ -183,17 +186,17 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Obstacle çarpýþtýk " + other.gameObject.name);
-                      
+
             myAnim.SetBool("Death", true);
             isDead = true;
 
         }
 
-       /* if (other.gameObject.CompareTag("duvar")) 
-        {
-            Debug.Log("Duvar çarpýþtýk " + other.gameObject.name);
-        }
-       */
+        /* if (other.gameObject.CompareTag("duvar")) 
+         {
+             Debug.Log("Duvar çarpýþtýk " + other.gameObject.name);
+         }
+        */
     }
     /// <summary>
     /// ncollision Exit metodu herhangi bir objeyle çarpýþmayý kontrol eder
@@ -202,7 +205,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionExit(Collision collision)
     {
-        
+
     }
     /// <summary>
     /// ncollision stay metodu herhangi bir objeyle çarpýþmayý kontrol eder
@@ -211,7 +214,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionStay(Collision collision)
     {
-        
+
     }
     /// <summary>
     /// isTrigger ile kontrol edilen yapýnýn içine girdiðinde neler yapýlacaðý
@@ -219,9 +222,9 @@ public class PlayerController : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Collectable")) 
+        if (other.CompareTag("Collectable"))
         {
-            Collectables collectables=other.GetComponent<Collectables>(); // collactables kod dosyasýna eriþim saðladým
+            Collectables collectables = other.GetComponent<Collectables>(); // collactables kod dosyasýna eriþim saðladým
 
             switch (collectables.CollectablesEnum)
             {
@@ -229,6 +232,7 @@ public class PlayerController : MonoBehaviour
                     AddScore(10);
                     break;
                 case CollectablesEnum.Shield:
+                    ActiveShield();
                     break;
                 case CollectablesEnum.Score2X:
                     break;
@@ -243,17 +247,34 @@ public class PlayerController : MonoBehaviour
             }
 
             Destroy(other.gameObject);
-  
-          
+
+
         }
-        
+
     }
 
-     void AddScore(int ToBeAddedScore)
+
+    void AddScore(int ToBeAddedScore)
     {
         score += ToBeAddedScore;
     }
 
+    /// <summary>
+    /// bu fonksiyon kalkaný aktif yapar
+    /// </summary>
+    void ActiveShield()
+    {
+        isShieldActive = true;
+        Invoke("DeactiveShield",5f);
+    }
+
+    /// <summary>
+    /// bu fonksiyon kalkaný pasif yapar
+    /// </summary>
+    void DeactiveShield() 
+    {
+        isShieldActive = false;
+    }
 
 
 
@@ -263,7 +284,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerStay(Collider other)
     {
-        
+
     }
     /// <summary>
     /// isTrigger ile kontrol edilen yapýnýn içinden çýkýldýðýnda girdiðinde neler yapýlacaðý
@@ -271,7 +292,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerExit(Collider other)
     {
-        
+
     }
     private void FixedUpdate()
     {
