@@ -216,6 +216,9 @@ public class PlayerController : MonoBehaviour
             {
                 Destroy(other.gameObject);
                 isShieldActive = false;
+                GameObject vfx = Instantiate(WallBreakVFX, other.transform.position, Quaternion.identity);
+                Destroy(vfx, 1f);
+
             }
             else
             {
@@ -238,10 +241,16 @@ public class PlayerController : MonoBehaviour
             myAnim.SetBool("Death", true);
             PlayerSound.PlayOneShot(DeathSound);// tek seferliðine ölüm sesini çalacak.
             isDead = true;
+            GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
+            Destroy(vfx, 1f);
+
+
         }
         else
         {
             Destroy(other.gameObject);
+            GameObject vfx = Instantiate(WallBreakVFX, other.transform.position, Quaternion.identity);
+            Destroy (vfx, 1f);
         }
     }
 
@@ -394,6 +403,8 @@ public class PlayerController : MonoBehaviour
             myAnim.SetBool("Death", true);
             PlayerSound.PlayOneShot(DeathSound);
             isDead = true;
+            GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
+            Destroy(vfx,1f);
         }
 
     }
