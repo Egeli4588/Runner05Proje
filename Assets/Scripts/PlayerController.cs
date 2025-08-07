@@ -251,6 +251,9 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             GameObject vfx = Instantiate(WallBreakVFX, other.transform.position, Quaternion.identity);
             Destroy (vfx, 1f);
+
+            GameObject healthvfx = Instantiate(HealthDeclineVFX, transform.position, Quaternion.identity, this.transform);
+            Destroy(healthvfx, 1f);
         }
     }
 
@@ -317,6 +320,8 @@ public class PlayerController : MonoBehaviour
     void ActiveMagnet()
     {
         isMagnetActive = true;
+        GameObject vfx = Instantiate(MagnetVFX, this.transform.position, Quaternion.identity, this.transform);
+        Destroy(vfx,5f);
         Invoke("DeactivateMAgnet", 5f);
     }
     void DeactivateMAgnet()
@@ -383,6 +388,8 @@ public class PlayerController : MonoBehaviour
     {
         isShieldActive = true;
         PlayerSound.PlayOneShot(ShieldSound);// kalkan sesini çalýþtýracaðým.
+        GameObject vfx= Instantiate(ShieldVFX,transform.position,Quaternion.identity,this.transform);
+        Destroy(vfx,5f);
         Invoke("DeactiveShield", 5f);
     }
 
