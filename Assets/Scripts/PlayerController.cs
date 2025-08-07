@@ -369,6 +369,7 @@ public class PlayerController : MonoBehaviour
     void ActiveShield()
     {
         isShieldActive = true;
+        PlayerSound.PlayOneShot(ShieldSound);// kalkan sesini çalýþtýracaðým.
         Invoke("DeactiveShield", 5f);
     }
 
