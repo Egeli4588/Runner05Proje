@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     public float beforeSpeed;
 
+    public bool isMove;
+
     void Start()
     {
         isMiddle = true;
@@ -121,15 +123,17 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         // 1.yöntem
-        if (Input.GetKeyDown(KeyCode.A) && transform.position.x > -0.5f)
+        if (Input.GetKeyDown(KeyCode.A) && transform.position.x > -0.5f && !isMove)
         {
             //  transform.Translate(new Vector3(-shift, 0, 0));
-            transform.DOMoveX(transform.position.x - shift, 0.5f).SetEase(Ease.Linear);
+            transform.DOMoveX(transform.position.x - shift, 0.5f).SetEase(Ease.Linear).OnComplete(isMoveToFalse);
+            isMove = true;
         }
-        else if (Input.GetKeyDown(KeyCode.D) && transform.position.x < 0.5f)
+        else if (Input.GetKeyDown(KeyCode.D) && transform.position.x < 0.5f && !isMove)
         {
             //transform.Translate(shift, 0, 0);
-            transform.DOMoveX(transform.position.x + shift, 0.5f).SetEase(Ease.Linear);
+            transform.DOMoveX(transform.position.x + shift, 0.5f).SetEase(Ease.Linear).OnComplete(isMoveToFalse);
+            isMove = true;
 
         }
 
@@ -177,6 +181,14 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    void isMoveToFalse()
+    {
+        isMove = false;
+
+    }
+
+
 
     /// <summary>
     /// oncollision Enter metodu herhangi bir objeyle çarpýþmayý kontrol eder

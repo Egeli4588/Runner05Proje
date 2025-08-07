@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     void SpawnCollectable()
     {
         GameObject collectableObject = Instantiate(collactables[Random.Range(0, collactables.Length)], Player.position + new Vector3(0, 0.5f, 50f), Quaternion.identity);
-       
+
         Invoke("SpawnCollectable", Random.Range(3f, 10f));
     }
 
