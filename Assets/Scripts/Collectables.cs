@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Collectables : MonoBehaviour
 {
@@ -11,9 +12,20 @@ public class Collectables : MonoBehaviour
 
     private void Start()
     {
-        if (CollectablesEnum == CollectablesEnum.Coin) 
+        if (CollectablesEnum == CollectablesEnum.Coin)
         {
             Player = GameObject.FindFirstObjectByType<PlayerController>().gameObject; // Player objemize eriþtik
+        }
+    }
+
+    private void Update()
+    {
+        if (CollectablesEnum == CollectablesEnum.Coin && Player.GetComponent<PlayerController>().isMagnetActive)
+        {
+            if (Vector3.Distance(Player.transform.position, this.transform.position) < 8)
+            {
+                transform.DOMove(Player.transform.position + new Vector3(0, 1, 0), 0.35f);
+            }
         }
     }
 
