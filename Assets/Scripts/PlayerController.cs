@@ -236,6 +236,7 @@ public class PlayerController : MonoBehaviour
         if (Health <= 0)
         {
             myAnim.SetBool("Death", true);
+            PlayerSound.PlayOneShot(DeathSound);// tek seferliðine ölüm sesini çalacak.
             isDead = true;
         }
         else
@@ -331,6 +332,7 @@ public class PlayerController : MonoBehaviour
     void ActivateBonus()
     {
         is2XActive = true;
+        AudioSource.PlayClipAtPoint(BonusSound, transform.position);//burda sesi olduðu noktada çalýyor.
         Invoke("DeActivateBonus", 5f);
     }
 
@@ -385,6 +387,7 @@ public class PlayerController : MonoBehaviour
         if (Health <= 0)
         {
             myAnim.SetBool("Death", true);
+            PlayerSound.PlayOneShot(DeathSound);
             isDead = true;
         }
 
