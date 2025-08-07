@@ -1543,7 +1543,7 @@ MonoBehaviour:
   - {fileID: 6611996859763412665, guid: 9e7a26318b6256a4d928d5e92360d0f2, type: 3}
   - {fileID: 7101626874961294485, guid: 6484df69f101e3c44a4017db790ac575, type: 3}
   - {fileID: 528687136142645305, guid: 036016726ddedb44badf67f9fd1126f3, type: 3}
-  - {fileID: 5533999665915787634, guid: 4f8b7adeb456da243b5c27b4943571c2, type: 3}
+  - {fileID: 6308057129869453991, guid: 4f8b7adeb456da243b5c27b4943571c2, type: 3}
   - {fileID: 6584087418469503733, guid: 2866ff176df037b408a46fa22dfefcca, type: 3}
 --- !u!4 &1377460211
 Transform:
@@ -4401,6 +4401,12 @@ MonoBehaviour:
   MagnetCoinSound: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
   ShieldSound: {fileID: 8300000, guid: 35fbad8cdde724f11ba6481f1e64af71, type: 3}
   PlayerSound: {fileID: 8702267592701562688}
+  CoinCollectedVFX: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+  deathVFX: {fileID: 7226888052703040409, guid: 7ec363c8df426644ea85f8d6d570561c, type: 3}
+  HealthDeclineVFX: {fileID: 6855314210357232287, guid: 7c2a9b83b809a0848915fabd9596b68b, type: 3}
+  MagnetVFX: {fileID: 1590415177872986601, guid: acdb90624a404aa438447006f1026065, type: 3}
+  WallBreakVFX: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+  ShieldVFX: {fileID: 4772634663576830964, guid: e1385af346f4e624eb313ec1ea4fcd7e, type: 3}
 --- !u!82 &8702267592701562688
 AudioSource:
   m_ObjectHideFlags: 0

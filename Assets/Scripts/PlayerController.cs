@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     [System.NonSerialized] public string denemeforgizleme2;// gizleme 2
     public int score;
     //bool ile sürünmeden kurtulalaým
-
     public bool isDead;
     //oyun baþladýðýnda karakter hareket etmemesi için
     [HideInInspector] public bool isStart;// public olmasýnýn neden buna UI Managerdan eriþmek
@@ -41,7 +40,8 @@ public class PlayerController : MonoBehaviour
     //Oyuncu Sesleri için
     [SerializeField] AudioSource PlayerSound;
 
-
+    // vfx (görsel effektler partikül sistemleri)
+    [SerializeField] GameObject CoinCollectedVFX, deathVFX, HealthDeclineVFX, MagnetVFX, WallBreakVFX, ShieldVFX;
 
 
     void Start()
@@ -355,6 +355,10 @@ public class PlayerController : MonoBehaviour
             PlayerSound.Play();
         }
 
+        //GameObject vfx = Instantiate(CoinCollectedVFX, transform.position, Quaternion.identity);
+        //GameObject vfx = Instantiate(CoinCollectedVFX, transform.position, Quaternion.identity,this.transform);
+        GameObject vfx = Instantiate(CoinCollectedVFX, transform.position+ new Vector3(0,1,0), Quaternion.identity,this.transform);
+        Destroy(vfx,1f);
 
         if (is2XActive)
         {
