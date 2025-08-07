@@ -35,6 +35,15 @@ public class PlayerController : MonoBehaviour
 
     public bool isMove;
 
+    //Sesler için
+    [SerializeField] AudioClip BonusSound, CoinSound, DeathSound, MagnetCoinSound, ShieldSound;
+
+    //Oyuncu Sesleri için
+    [SerializeField] AudioSource PlayerSound;
+
+
+
+
     void Start()
     {
         isMiddle = true;
@@ -333,6 +342,22 @@ public class PlayerController : MonoBehaviour
 
     void AddScore(int ToBeAddedScore)
     {
+        if (isMagnetActive) 
+        {
+            PlayerSound.clip = MagnetCoinSound;
+            PlayerSound.Play();
+        }
+        else
+        {
+            PlayerSound.clip = CoinSound;
+            PlayerSound.Play();
+        }
+
+
+        if (is2XActive)
+        {
+            ToBeAddedScore *= 2;
+        }
         score += ToBeAddedScore;
     }
 
